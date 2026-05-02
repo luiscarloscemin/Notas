@@ -1,0 +1,191 @@
+/* ===========================================
+   LAYOUT GERAL (IMPORTANTE)
+   =========================================== */
+
+.app-container,
+.main-content,
+.content-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* evita scroll global */
+}
+
+.content-container {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+/* ===========================================
+   WRAPPER (SCROLL HORIZONTAL REAL)
+   =========================================== */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* ===========================================
+   CONTAINER DA TABELA
+   =========================================== */
+
+.table-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  min-width: max-content; /* 🔥 permite expandir */
+}
+
+/* ===========================================
+   HEADER
+   =========================================== */
+
+.virtual-header {
+  display: flex;
+  align-items: center;
+  background: #0b4f6c;
+  color: white;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+/* ===========================================
+   LINHAS
+   =========================================== */
+
+.virtual-row {
+  display: flex;
+  width: max-content; /* 🔥 ESSENCIAL */
+  border-bottom: 1px solid #eee;
+}
+
+/* zebra */
+.virtual-row:nth-child(even) {
+  background: #fafafa;
+}
+
+/* hover */
+.virtual-row:not(.virtual-header):hover {
+  background: #f1f5f9;
+}
+
+/* ===========================================
+   CÉLULAS
+   =========================================== */
+
+.cell {
+  flex: 0 0 auto; /* 🔥 impede compressão */
+  min-width: 140px;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===========================================
+   COLUNAS
+   =========================================== */
+
+.nome-col {
+  min-width: 220px;
+  font-weight: 600;
+  color: #333;
+}
+
+.media-geral-col {
+  min-width: 100px;
+  text-align: center;
+  font-weight: bold;
+  background: #f8fafc;
+}
+
+.grade-col {
+  text-align: center;
+}
+
+/* ===========================================
+   BADGES
+   =========================================== */
+
+.grade-value {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* cores */
+.excellent {
+  background: rgba(40, 167, 69, 0.15);
+  color: #155724;
+}
+
+.good {
+  background: rgba(0, 168, 232, 0.15);
+  color: #003d82;
+}
+
+.average {
+  background: rgba(255, 193, 7, 0.15);
+  color: #856404;
+}
+
+.fair {
+  background: rgba(255, 140, 0, 0.15);
+  color: #804000;
+}
+
+.poor {
+  background: rgba(220, 53, 69, 0.15);
+  color: #721c24;
+}
+
+/* ===========================================
+   FOOTER
+   =========================================== */
+
+.table-footer {
+  padding: 1rem;
+  background: #f8f9fa;
+  border-top: 1px solid #eee;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* ===========================================
+   EMPTY STATE
+   =========================================== */
+
+.empty-state {
+  padding: 3rem;
+  text-align: center;
+  color: #666;
+}
+
+/* ===========================================
+   RESPONSIVO
+   =========================================== */
+
+@media (max-width: 768px) {
+  .cell {
+    min-width: 120px;
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  .nome-col {
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cell {
+    min-width: 100px;
+    font-size: 0.75rem;
+  }
+}
